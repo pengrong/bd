@@ -1,0 +1,43 @@
+/*设置登录框样式*/
+.form-login {
+	background-color: #fff; 
+}
+.error {
+	height: 30px;
+}
+.error .errorMsg {
+	font-size: 12px;
+	font-family: SimSun;
+	line-height: 30px;
+	margin-left: 100px;
+	color: #c00;
+}
+.login-content {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.form-group .form-control {
+	height: 40px;
+	border: 1px soild #ddd;
+	margin-bottom: 15px;
+	width: 100%;
+	border-radius: 0;
+}
+.checkbox .form-checkbox , .checkbox .form-forget {
+	font-size: 12px;
+	font-family: SimSun;
+}
+.checkbox .form-forget {
+ 	float: right;
+ 	margin-top: 5px;
+}
+.btn.btn-login {
+	height: 48px;
+	width: 350px;
+	background-color: #3e99ff;
+	margin-top: 5px;
+	margin-bottom: 40px;
+	color: #fff;
+	font-size: 18px;
+	font-family: "Microsoft YaHei";
+}

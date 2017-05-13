@@ -1,197 +1,184 @@
 <!DOCTYPE html>
 <%@ page pageEncoding="UTF-8" language="java"%>
 <%@ taglib uri="/tags/loushang-web" prefix="l"%>
-<html lang="en" style="height:100%">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <title>楼上云应用支撑平台</title>
-
-    <!-- 需要引用的CSS -->
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+	<title>Loushang UI库</title>
+	
+	<!-- 需要引用的CSS -->
     <link rel="shortcut icon" href="<l:asset path='platform/img/favicon.ico'/>" />
-    <link rel="stylesheet" type="text/css" href="<l:asset path='css/bootstrap.css'/>" />
+	<link rel="stylesheet" type="text/css" href="<l:asset path='css/bootstrap.css'/>" />
     <link rel="stylesheet" type="text/css" href="<l:asset path='css/font-awesome.css'/>" />
     <link rel="stylesheet" type="text/css" href="<l:asset path='css/ui.css'/>" />
-    <link rel="stylesheet" type="text/css" href="<l:asset path='css/form.css'/>" />
-    <link rel="stylesheet" type="text/css" href="<l:asset path='css/intro.css'/>" />
+	<link rel="stylesheet" type="text/css" href="<l:asset path='css/form.css'/>" />
+	<link rel="stylesheet" type="text/css" href="<l:asset path='cportal/css/cportal.css'/>" />
+	<link rel="stylesheet" type="text/css" href="<l:asset path='cportal/css/jsPanel.css'/>" />
     <link rel="stylesheet" type="text/css" href="<l:asset path='platform/css/home.css'/>" />
-    
-    <script  type="text/javascript" src="<l:asset path='knockout.js'/>"></script>
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="<l:asset path='html5shiv.js'/>"></script>
-      <script src="<l:asset path='respond.js'/>"></script>
-    <![endif]-->
-    <script type="text/javascript">
-	    //项目上下文
-		var context="<%=request.getContextPath()%>";
-		//获取静态资源上下文路径 
-		var assetPath ="<l:assetcontext/>";
-    </script>
-  </head>
-  <body style="height:100%;overflow: hidden;">
+
+	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+	      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+	    <![endif]-->
+</head>
+<body>
 	<!-- 页面结构 -->
-	<header class="navbar navbar-static-top">
-   		<div class="navbar-header">
-   			<a class="fa fa-bars pull-left" onclick="toggleSide()" data-step="4" data-intro="点击此处可扩展恢复工作区空间" data-position="right"></a>
-   			<a href="javascript: location=location;" class="navbar-brand"><span>|</span>楼上云应用支撑平台</a>
-		</div>
-    	<nav class="collapse navbar-collapse">
-    		<ul class="nav navbar-nav navbar-right">
-    			<li role="search">
-    				<a id="searchImg" class="fa fa-search" onclick="showSearch(this)" ></a>
-    			</li>
-   				<li>
-    				<a id="protal" class="fa fa-dashboard" title="门户" onclick="showPortal(true)" ></a>
-    			</li>
-    			<li>
-    				<div class="dropdown" id="favoritesMenu">
-    					<a class="fa fa-star-o" data-toggle="dropdown" onclick="showFavorites(this)"></a>
-    					<ul class="dropdown-menu ue-dropdown-menu dropdown-menu-right" >
-						  	<li class="ue-dropdown-angle"></li>
-						  	<div data-bind="foreach: menuList" class="drop-area">
-						  		<li>
-						  			<a class="ue-title ellipsis" data-bind="click:showFavorites">
-						  		    <span data-bind=" text: name"></span>
-						  		    <i class="fa fa-times ue-vmenu-icon-r" data-bind="click:saveFavorites.bind($data,$index()),clickBubble: false" data-toggle="tooltip" data-placement="right" title="删除"></i>
-						  		    </a>
-						  		</li>
-						  	</div>
-						    <li><a id="favoritesMore" class="more" data-bind="click: favoritesMenuView.showMore, clickBubble: false">更多</a></li>
-					  	</ul>
-    				</div>
-    			</li>
-	    		<li data-step="1" data-intro="请选择所需模块" data-position="left">
-	    			<div class="dropdown" id="topMenu">
-	    				<a class="fa fa-th-large" data-toggle="dropdown"></a>
-		    			<div class="dropdown-menu ue-dropdown-menu dropdown-menu-right app">
-		    				<span class="ue-dropdown-angle"></span>
-		    				<div data-bind="foreach: menuList" class="app drop-area">
-		    					<div class="ue-icon-title" data-bind="click: topMenuView.getSubMenu">
-			    					<img data-bind="attr: { src:topMenuView.topMenuIcon($data)}" class="ue-icon"/>
-									<a class="ue-title ellipsis" data-bind="attr: { title:text},text:text"></a>
-								</div>
-							</div>	
-							<a id="topMore" class="more" data-bind="click: showMore, clickBubble: false">更多</a>
-						</div>
+	<header class="navbar navbar-fixed-top navbar-bg">
+		<div class="container">
+			<div class="navbar-header">
+				<a href="" class="navbar-brand">Loushang UI库</a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<div class="nav-bar navbar-nav navbar-right">
+					<div class="btn-group login-group" role="group" aria-label="...">
+					  <button type="button" class="btn btn-default login">登录</button>
+					  <button type="button" class="btn btn-default regist">注册</button>
 					</div>
-		      	</li>
-		        <li>
-		        	<div class="dropdown" id="userInfo">
-		        		<a data-toggle="dropdown" data-bind="text:userName" class="username"><span class="caret"></span></a>
-		        		<div class="dropdown-menu ue-dropdown-menu dropdown-menu-right">
-		        			<span class="ue-dropdown-angle"></span>
-		        			<img class="user-photo" src="<l:asset path='platform/img/user.jpg'/>"/>
-		        			<div class="user-info">
-		        				<span class="user-role" data-bind="text:userName"></span>
-		        				<a href="#" class="user-action"><i class="fa fa-edit md">&nbsp;</i>修改资料</a>
-				        		<a href="#" class="user-action"><i class="fa fa-user-md md">&nbsp;</i>个人中心</a>
-		        			</div>
-				        	<div class="exit"><a onclick="logout()">退出</a></div>
-		        		</div>
-		        	</div>
-		        </li>
-		    </ul>
-		    
-		    <aside id="searchview" class="searchview" role="search" >
-				<div class="searchview-content">
-					<form id="searchform" class="searchform" method="get" onsubmit="return false;">
-						<div class="searchform-wrapper">
-							<input id="searchform-input" name="searchform-input" style="background-position-y: 10px;" class="searchform-input" type="text" onblur="searchCancel()" onkeydown="query(event)"/>
-							<span class="searchform-submit fa fa-search" ></span>
-						</div>
-					</form>
+					<div class="user-group">
+					<div class="btn-group" role="group" aria-label="...">
+					  <div class="btn-group" role="group">
+					    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					      <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+					      <span class="loginuser center"></span>
+					    </button>
+					    <ul class="dropdown-menu">
+					      <li><a href="#">Dropdown link</a></li>
+					      <li><a href="#">Dropdown link</a></li>
+							<li><a class="center" id="quit">退出登录</a></li>
+					    </ul>
+					  </div>
+					  <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></button>
+					</div>
+					</div>
 				</div>
-			</aside>
-   		</nav>
+			</div>
+		</div>
 	</header>
-	
-	<div class="ue-menu-wrap">
-		<div class="ue-menu-left" id="leftMenu">
-			<div class="ue-left-top" >
-				<span id="dyn-top">
-				    <a class="ue-title ellipsis" data-bind="click:loadUrl">
-						<img data-bind="attr: { src:PMenuIcon}" class="title-icon"/>
-						<span class="left-top-text ellipsis" data-bind="text:pMenuName"></span>
-					</a>
-				</span>
+	<div class="component-banner">
+		<div class="jumbotron">
+			<h2>UI组件库、典型模板库</h2>
+			<p>没有最好的，只有最适合的</p>
+		</div>
+	</div>
+	<div class="component-menu-wrap">
+		<div class="container component-menu" >
+			<ul id="comt"></ul>
+			<ul id="coma">
+				<li><a href="ui-compatibility.html" target="_blank">兼容性</a></li>
+				<li><a href="ui-codenorm.html" target="_blank">代码规范</a></li>
+				<li><a href="">设计规范</a></li>
+				<li><a href="http://jsonlint.com" target="_blank">JSON在线工具</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="container">
+		<div class="row" style="position: relative;">
+			<div class="list-types" style="display: none;">
+				<ul>
+				</ul>
 			</div>
-			<div class="ue-left-content" data-step="2" data-intro="请选择模块的具体操作" data-position="right">
-				<div class="ue-vmenu">
-					<!-- ko if: pMenuName()=="我的收藏"-->
-					<ul  data-bind="foreach:menuList" >
-						<li><a data-bind="click:loadUrl" class="clearfix" data-role="leaf"><span data-bind=" text: name"></span>
-						    <i class="fa fa-times ue-vmenu-icon-r" data-bind="click:saveFavorites.bind($data,$index()),clickBubble: false" data-toggle="tooltip" data-placement="right" title="删除"></i>
-						    </a>
-						</li>
-					</ul>				
-					<!--/ko-->  
-					
-					<!-- ko if: pMenuName()!="我的收藏"-->
-					<ul  data-bind="foreach:menuList" >
-					    <!-- ko if: isLeaf=="true"-->  
-						<li data-bind="attr: { id: id}"><a data-bind="click:loadUrl" class="clearfix" data-role="leaf"><span data-bind=" text: text"></span>
-						    <i class="fa fa-star-o ue-vmenu-icon-r" data-bind=" click:saveFavorites.bind($data,$index()) ,clickBubble: false" data-toggle="tooltip" data-placement="right" title="收藏"></i>
-						    </a>
-						</li>
-					  <!-- /ko --> 
-					  <!-- ko if: isLeaf=="false" --> 
-					    <li data-bind="attr: { id: id}"><a><span data-bind=" text: text"></span></a>
-							<ul data-bind="template: {name:'subMenu-template',foreach:children}" >
-							</ul>
-						</li>
-					  <!-- /ko -->  
+			<div class="col-md-10">
+				<div class="row" id="comc"></div>
+			</div>
+			<div class="col-md-2">
+				<div class="input-group">
+           			<input id="comName" class="form-control ue-form" type="text" placeholder="请输入组件名称"/>
+           			<div id="namesearch" class="input-group-addon ue-form-btn">
+           				<span class="fa fa-search"></span>
+          			</div>
+        		</div>
+        		<div id="rc">
+					<ul class="list-group">
+						<li class="recommend" onClick="getComsOrderByCreateTime()"><i class="fa fa-flag"></i> <span>最新发布</span></li>
+						<li class="recommend" onClick="getComsOrderByViewCounts()"><i class="fa fa-eye"></i> <span>最多浏览</span></li>
+						<li class="recommend" onClick="getComsOrderByCommentCounts()"><i class="fa fa-comments-o"></i> <span>最多评价</span></li>
+						<li class="recommend" onClick="getComsOrderByDownloadCounts()"><i class="fa fa-arrow-circle-o-down"></i> <span>最多下载</span></li>
 					</ul>
-					<!--/ko-->
 				</div>
-			</div>
-		</div>
-		<div class="ue-menu-right">
-			<div class="ue-right-top">Welcome</div>
-			<div class="ue-right-content" data-step="3" data-intro="工作区" data-position="left">
-				<iframe id="mainFrame" name="mainFrame" src="<%=request.getContextPath()%>/jsp/public/introduce.jsp" frameborder="0" allowtransparency="true" width="100%" height="100%"></iframe>
-			</div>
+			</div> 
 		</div>
 	</div>
-	
-	<div class="portal-wrap" style="display: none;">
-	    <div class="portal-content">
-			<iframe id="portalFrame" name="portalFrame" src="<%=request.getContextPath()%>/jsp/public/portal.jsp" frameborder="0" allowtransparency="true" width="100%" height="100%"></iframe>
-		</div>
-	</div>
-	
-    <!-- 需要引用的JS -->
-    <script type="text/javascript" src="<l:asset path='jquery.js'/>"></script>
-    <script type="text/javascript" src="<l:asset path='bootstrap.js'/>"></script>
-    <script type="text/javascript" src="<l:asset path='form.js'/>"></script>
-    <script  type="text/javascript" src="<l:asset path='ui.js'/>"></script>
-    <script  type="text/javascript" src="<l:asset path='intro.js'/>"></script>
-    <script  type="text/javascript" src="<l:asset path='home.js'/>"></script>
-    
-    <!--左菜单模板-->
-    <script type="text/html" id="subMenu-template" >
-	<!-- ko if: isLeaf=='true' -->
-	<li data-bind="attr: { id: id}">
-        <a data-bind="click:loadUrl" class="clearfix" data-role="leaf">
-       		<span data-bind="text:text"></span>
-			<i class="fa fa-star-o ue-vmenu-icon-r" data-bind="click:saveFavorites.bind($data,$index()),clickBubble: false" data-toggle="tooltip" data-placement="right" title="收藏"></i>
-        </a>
-    </li>
-	<!-- /ko -->
-	<!-- ko if: isLeaf=='false' -->
-	<li data-bind='attr: { id: id}'><a data-bind=" text: text"></a>
-		<ul  data-bind="template: {name:'subMenu-template',foreach:children}">
-			<li data-bind="attr: { id: id}">
-            <a data-bind="click:loadUrl" class="clearfix" data-role="leaf"><span data-bind="text:text"></span>
-			<i class="fa fa-star-o ue-vmenu-icon-r" data-bind="click:saveFavorites.bind($data,$index()),clickBubble: false" data-toggle="tooltip" data-placement="right" title="收藏"></i>
-       	    </a>
-    		</li>
-		</ul>
-    </li> 
-	<!-- /ko -->
-    </script>
-  </body>
+	<!-- 需要引用的JS -->
+	<script type="text/javascript" src="<l:asset path='jquery.js'/>"></script>
+	<script type="text/javascript" src="<l:asset path='bootstrap.js'/>"></script>
+	<script type="text/javascript" src="<l:asset path='jquery-ui.js'/>"></script>
+	<script type="text/javascript" src="<l:asset path='form.js'/>"></script>
+	<script type="text/javascript" src="<l:asset path='arttemplate.js'/>"></script>
+	<script type="text/javascript" src="<l:asset path='home.js'/>"></script>
+	<script type="text/html" id="component">
+{{ each components as component i }}
+	<div class="col-md-3 col-sm-4 component-item">
+        <div class="component">
+            <div class="link">
+               <a href="ui.jsp?comId={{component.id}}" target="_blank"><img src="demo/{{component.id}}/thumbnail.jpg"></a>
+            </div>
+            <article>
+            	<a href="ui.jsp?comId={{component.id}}" target="_blank">
+                	{{component.name}}
+                </a>
+                <small>{{component.description}}</small>
+            </article>
+        </div>
+    </div>
+{{/each}}
+</script>
+
+<!-- 一级分类菜单模板 -->
+<script type="text/html" id="comtype">
+{{each comtypes as comtype i }}
+	<li id={{comtype.id}} class="sign"><a>{{comtype.name}}<i class="fa fa-angle-down"></i></a>
+	</li>
+{{/each}}
+</script>
+
+<!-- 二级分类菜单模板 -->
+<script type="text/html" id="typesub">
+  <ul>
+  {{each typesubs as typesub i }}
+     <li id={{typesub.id}}><a><i class="fa fa-th-large"></i>{{typesub.name}}</li></a>
+  {{/each}}
+ </ul>
+</script>
+	<script type="text/javascript">
+		var context="<%=request.getContextPath()%>";
+		var tId="";
+	    $(document).ready(function() {
+	    	//初始所有组件，判断是否有从ui.jsp接收typeId
+		    var typeId = 'null';
+		    if(typeId == "null"){
+		    	//初始所有组件 
+			 	//getAllComs();
+		    }
+		    else {
+		    	//根据组件类别分类查询
+		    	 getComsByTypeId(typeId);
+		    }	
+		    
+		    //根据组件类别分类查询
+			$(".list-types").on("click","li",function() {
+				var typeId = $(this).attr("id");
+				tId = typeId;
+				getComsByTypeId(typeId);
+			});
+	    	 		
+		    //根据组件名称模糊查询，按钮
+	 		$("#namesearch").on("click",function() {
+	 			 getComsByName();
+			});
+				    	
+			//根据组件名称模糊查询，搜索框回车事件
+			$("#comName").keydown(function(event) {
+				if(event.keyCode == 13)
+				{
+					getComsByName();
+			   	}
+			});
+	    });
+	</script>
+</body>
 </html>

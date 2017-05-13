@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.bd.web.dao.user.UserMapper">
+
+	<resultMap type="com.bd.web.data.user.User" id="userResultMap">
+		<id property="id" column="id" />
+	</resultMap>
+
+	<select id="getByUsername" resultMap="userResultMap"
+		parameterType="String">
+		SELECT
+		id,
+		username,
+		passwrod,
+		enabled,
+		locked
+		FROM
+		BD_WEB_USER
+		username = #{username}
+	</select>
+
+</mapper>
