@@ -1,4 +1,4 @@
-package com.bd.web.common;
+package com.bd.common;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

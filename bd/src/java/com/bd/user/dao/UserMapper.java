@@ -1,8 +1,8 @@
-package com.bd.web.dao.user;
+package com.bd.user.dao;
 
 import org.loushang.framework.mybatis.mapper.EntityMapper;
 
-import com.bd.web.data.user.User;
+import com.bd.user.data.User;
 
 public interface UserMapper  extends EntityMapper<User>{
 

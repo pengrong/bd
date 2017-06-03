@@ -1,20 +1,23 @@
-package com.bd.web.controller.user;
+package com.bd.web.controller;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.bd.web.common.Tools;
-import com.bd.web.data.user.User;
-import com.bd.web.service.user.IUserService;
+import com.bd.user.data.User;
+import com.bd.user.service.UserService;
+import com.bd.common.Tools;
 
 @Controller
 @RequestMapping(value = "/db/user")
 public class UserController {
-	private IUserService userService;
+	@Autowired
+	private UserService userService;
 
 	/**
 	 * 注册
@@ -23,6 +26,7 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping(value = "/register")
+	@ResponseBody
 	public Map<String, Object> register(User user) {
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		String info = checkUser(user);
@@ -31,11 +35,11 @@ public class UserController {
 			resultMap.put("success", false);
 		} else {
 			try {
-				int result = userService.register(user);
+				userService.register(user);
 				resultMap.put("success", true);
 			} catch (Exception e) {
 				e.printStackTrace();
-				resultMap.put("message", info);
+				resultMap.put("message", "注册失败");
 				resultMap.put("success", false);
 			}
 		}

@@ -1,0 +1,5 @@
+eclipse.preferences.version=1
+encoding//WebContent/jsp/public/home.jsp=UTF-8
+encoding//WebContent/jsp/public/login.jsp=UTF-8
+encoding//src/resources/datasource.properties=UTF-8
+separateDerivedEncodings=true

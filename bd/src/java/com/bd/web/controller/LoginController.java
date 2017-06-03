@@ -1,4 +1,4 @@
-package com.bd.web.controller.user;
+package com.bd.web.controller;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -8,21 +8,23 @@ import javax.servlet.http.HttpSession;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.bd.web.common.Constant;
-import com.bd.web.common.Md5PasswordEncoder;
-import com.bd.web.data.user.User;
-import com.bd.web.service.user.IUserService;
+import com.bd.common.Constant;
+import com.bd.common.Md5PasswordEncoder;
+import com.bd.user.data.User;
+import com.bd.user.service.UserService;
 
 @Controller
 @RequestMapping(value = "/bd/login")
 public class LoginController {
 	private static final Log LOG = LogFactory.getLog(LoginController.class);
-	private IUserService userService;
+	@Autowired
+	private UserService userService;
 
 	/**
 	 * 登录

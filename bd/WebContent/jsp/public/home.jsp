@@ -28,52 +28,52 @@
 </head>
 <body>
 	<!-- 页面结构 -->
-	<header class="navbar navbar-fixed-top navbar-bg">
+	<header class="navbar navbar-static-top navbar-bg">
 		<div class="container">
-			<div class="navbar-header">
-				<a href="" class="navbar-brand">Loushang UI库</a>
-			</div>
-			<div class="collapse navbar-collapse">
-				<div class="nav-bar navbar-nav navbar-right">
-					<div class="btn-group login-group" role="group" aria-label="...">
-					  <button type="button" class="btn btn-default login">登录</button>
-					  <button type="button" class="btn btn-default regist">注册</button>
-					</div>
-					<div class="user-group">
-					<div class="btn-group" role="group" aria-label="...">
-					  <div class="btn-group" role="group">
-					    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					      <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-					      <span class="loginuser center"></span>
-					    </button>
-					    <ul class="dropdown-menu">
-					      <li><a href="#">Dropdown link</a></li>
-					      <li><a href="#">Dropdown link</a></li>
-							<li><a class="center" id="quit">退出登录</a></li>
-					    </ul>
-					  </div>
-					  <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></button>
-					</div>
-					</div>
-				</div>
-			</div>
+					<div class="navbar-header"><a href="" class="navbar-brand">BD</a></div>
+					<nav class="collapse navbar-collapse">
+						<ul id="menu" class="nav navbar-nav">
+							<li><a href="ui-compatibility.html" >实时预测</a></li>
+							<li><a href="ui-codenorm.html" >行情日历</a></li>
+							<li><a href="">交流论坛</a></li>
+						</ul>
+						<div class="nav-bar navbar-nav navbar-right">
+								<div class="btn-group login-group" role="group" aria-label="...">
+								  <button type="button" class="btn btn-default login">登录</button>
+								  <button type="button" class="btn btn-default regist">注册</button>
+								</div>
+								<div class="user-group">
+								<div class="btn-group" role="group" aria-label="...">
+								  <div class="btn-group" role="group">
+								    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								      <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+								      <span class="loginuser center"></span>
+								    </button>
+								    <ul class="dropdown-menu">
+								      <li><a href="#">Dropdown link</a></li>
+								      <li><a href="#">Dropdown link</a></li>
+										<li><a class="center" id="quit">退出登录</a></li>
+								    </ul>
+								  </div>
+								  <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></button>
+								</div>
+							</div>
+						</div>
+						</nav>
 		</div>
 	</header>
-	<div class="component-banner">
-		<div class="jumbotron">
-			<h2>UI组件库、典型模板库</h2>
-			<p>没有最好的，只有最适合的</p>
-		</div>
-	</div>
-	<div class="component-menu-wrap">
-		<div class="container component-menu" >
-			<ul id="comt"></ul>
-			<ul id="coma">
-				<li><a href="ui-compatibility.html" target="_blank">兼容性</a></li>
-				<li><a href="ui-codenorm.html" target="_blank">代码规范</a></li>
-				<li><a href="">设计规范</a></li>
-				<li><a href="http://jsonlint.com" target="_blank">JSON在线工具</a></li>
-			</ul>
+	<div class="container">
+		<div class="row" style="position: relative;">
+			<div class="col-md-6">
+				<div class="embed-responsive embed-responsive-16by9">
+				  <iframe class="embed-responsive-item" src="http://image.sinajs.cn/newchart/daily/n/sh000001.gif"></iframe>
+				</div>
+			</div>
+			<div class="col-md-6">
+				<div class="embed-responsive embed-responsive-16by9">
+				  <iframe class="embed-responsive-item" src="..."></iframe>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="container">
@@ -83,7 +83,11 @@
 				</ul>
 			</div>
 			<div class="col-md-10">
-				<div class="row" id="comc"></div>
+				<div class="row" id="comc">
+					<div class="embed-responsive embed-responsive-16by9">
+					  <iframe class="embed-responsive-item" src="..."></iframe>
+					</div>
+				</div>
 			</div>
 			<div class="col-md-2">
 				<div class="input-group">

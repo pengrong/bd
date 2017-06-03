@@ -1,16 +1,16 @@
-package com.bd.web.service.impl.user;
+package com.bd.user.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bd.web.common.Md5PasswordEncoder;
-import com.bd.web.common.Tools;
-import com.bd.web.dao.user.UserMapper;
-import com.bd.web.data.user.User;
-import com.bd.web.service.user.IUserService;
+import com.bd.common.Md5PasswordEncoder;
+import com.bd.common.Tools;
+import com.bd.user.dao.UserMapper;
+import com.bd.user.data.User;
+import com.bd.user.service.UserService;
 
 @Service("userService")
-public class UserServiceImpl implements IUserService {
+public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private UserMapper userMapper;

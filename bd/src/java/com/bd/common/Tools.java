@@ -1,4 +1,4 @@
-package com.bd.web.common;
+package com.bd.common;
 
 import java.sql.Date;
 import java.util.regex.Matcher;

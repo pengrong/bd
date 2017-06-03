@@ -1,6 +1,6 @@
-package com.bd.web.service.user;
+package com.bd.user.service;
 
-import com.bd.web.data.user.User;
+import com.bd.user.data.User;
 
 /**
  * 用户管理
@@ -8,7 +8,7 @@ import com.bd.web.data.user.User;
  * @author ipeng
  *
  */
-public interface IUserService {
+public interface UserService {
 
 	/**
 	 * 注册

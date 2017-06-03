@@ -19,14 +19,14 @@
 <![endif]-->
 <style type="text/css">
 .Validform_input {
-	width:100%;
+	width: 100%;
 	padding-left: 1px;
 	padding-right: 1px;
 }
-.ue-btn-primary {
-	width:100%
-}
 
+.ue-btn-primary {
+	width: 100%
+}
 </style>
 <!-- 引入js文件 -->
 <l:script path="jquery.js,bootstrap.js,form.js,jquery.form.js,ui.js" />
@@ -39,48 +39,37 @@
 			btnSubmit : "#saveBtn",
 			datatype : {//传入自定义datatype类型;
 				"email" : email,
-				"password2" : function(a,b,c,d){
+				"password2" : function(a, b, c, d) {
 					return a == $("#password").val();
 				}
 			},
 			callback : function(form) {
-				$.dialog({
-					type : 'confirm',
-					content : '您确定要提交表单吗？',
-					ok : function() {
-						save();
-					},
-					cancel : function() {
-					}
-				});
+				save();
 			}
 		});
-
-		//返回user页面
-		$("#returnBtn").click(function() {
-			window.location = context + "/service/framework/demo/user";
-		})
-
 	});
 	//保存实例
 	function save() {
-		var url = context + "/service/framework/demo/user/save";
+		var url = context + "/service/db/user/register";
 		saveForm.action = url;
 		saveForm.method = "POST";
-		saveForm.submit();
-		/* 		//表单的异步提交
-		 $("#saveForm").ajaxSubmit({
-		 type: "post",
-		 url: requestUrl,
-		 error:function(data){
-		 alert("error："+data);  
-		 },
-		 success:function(data){
-		 //跳转到列表展现页面,前导航实现
-		 window.location = context + "/jsp/framework/demo/user/user.jsp";
-		 }  
-		 });
-		 return false; //不刷新页面  */
+		saveForm.submit(); 
+		//表单的异步提交
+		$("#saveForm").ajaxSubmit({
+					type : "post",
+					url : url,
+					error : function(data) {
+						$("#msgdemo").html("错误：" + data);
+					},
+					success : function(data) {
+						if(data && data.success==false){
+							$("#msgdemo").html("对不起，出错了：" + data.message);
+						}else{
+							window.location = context;
+						}
+					}
+				});
+		return false; //不刷新页面 
 	}
 </script>
 </head>
@@ -94,26 +83,27 @@
 				<div class="form-group">
 					<div class="col-xs-12 col-md-12">
 						<input type="text" class="form-control ue-form Validform_input"
-							id="userName" name="userName" value="${user.username}"
-							placeholder="请输入用户名" datatype="s3-15" errormsg="用户名3~15个字符:)"
+							id="username" name="username" value="${user.username}"
+							placeholder="请输入用户名" datatype="s1-15" errormsg="用户名3~15个字符:)"
 							nullmsg="请设置用户名" /> <span
 							class="Validform_checktip Validform_span"></span>
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="col-xs-12 col-md-12">
-						<input type="password" class="form-control ue-form Validform_input"
-							id="password" name="password" value="${user.password}"
-							placeholder="请设置登录密码" datatype="s6-16" errormsg="密码6~16个字符:)"
-							nullmsg="请设置登录密码" /> <span
+						<input type="password"
+							class="form-control ue-form Validform_input" id="password"
+							name="password" value="${user.password}" placeholder="请设置登录密码"
+							datatype="s1-16" errormsg="密码6~16个字符:)" nullmsg="请设置登录密码" /> <span
 							class="Validform_checktip Validform_span"></span>
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="col-xs-12 col-md-12">
-						<input type="password" class="form-control ue-form Validform_input"
-							id="password2" name="password2" value="${user.password2}"
-							placeholder="请确认密码" datatype="password2" errormsg="确认密码跟密码不一样了，请重新输入:("
+						<input type="password"
+							class="form-control ue-form Validform_input" id="password2"
+							name="password2" value="${user.password2}" placeholder="请确认密码"
+							datatype="password2" errormsg="确认密码跟密码不一样了，请重新输入:("
 							nullmsg="请确认密码" /> <span
 							class="Validform_checktip Validform_span"></span>
 					</div>
@@ -121,17 +111,17 @@
 				<div class="form-group">
 					<div class="col-xs-12 col-md-12">
 						<input type="text" class="form-control ue-form Validform_input"
-							id="email" name="archive.email" value="${user.archive.email}"
-							placeholder="可用于找回密码" datatype="email" ignore="ignore"
+							id="email" name="email" value="${user.email}"
+							placeholder="可请输入电子邮箱，用于找回密码" datatype="email" ignore="ignore"
 							errormsg="请输入格式正确的电子邮箱:)" /> <span
 							class="Validform_checktip Validform_span"></span>
 					</div>
 				</div>
 				<div class="form-group">
 					<div class="col-xs-12 col-md-12">
-						<button type="button" class="btn ue-btn-primary btn-block" id="saveBtn">
-							注册</button>
-						<span id="msgdemo"></span>
+						<button type="button" class="btn ue-btn-primary btn-block"
+							id="saveBtn">注册</button>
+						<span id="msgdemo" class="text-danger"></span>
 					</div>
 				</div>
 			</form>

@@ -1,4 +1,4 @@
-package com.bd.web.data.user;
+package com.bd.user.data;
 
 import java.sql.Date;
 
@@ -28,6 +28,10 @@ public class User {
 	private Date updatetime; // 更新时间
 	private String nickname;
 	private String cellphone; // 手机号码
+	/**
+	 * 账户类型:1系统管理员，2平台用户，3普通用户	
+	 */
+	private String usertype; // 
 
 	public long getId() {
 		return id;
@@ -131,5 +135,13 @@ public class User {
 
 	public void setCellphone(String cellphone) {
 		this.cellphone = cellphone;
+	}
+
+	public String getUsertype() {
+		return usertype;
+	}
+
+	public void setUsertype(String usertype) {
+		this.usertype = usertype;
 	}
 }

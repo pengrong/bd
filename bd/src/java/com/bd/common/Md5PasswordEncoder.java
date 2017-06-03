@@ -1,4 +1,4 @@
-package com.bd.web.common;
+package com.bd.common;
 
 public class Md5PasswordEncoder {
 
