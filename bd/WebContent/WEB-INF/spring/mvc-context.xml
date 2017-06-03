@@ -65,9 +65,9 @@
 	</bean>
 
 	<!-- 配置视图解析器 -->	
-	<bean id="viewResolver"
+	<bean id="viewResolver1"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="/jsp/" />
+		<property name="prefix" value="/" />
 		<property name="suffix" value=".jsp" />
 		<property name="order" value="1" />
 	</bean>

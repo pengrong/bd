@@ -14,5 +14,5 @@
                     ">
 
 	<!-- Service层bean扫描包路径 -->
-	<context:component-scan base-package="com.bd.web.service"/>
+	<context:component-scan base-package="com.bd.*.service"/>
 </beans>     

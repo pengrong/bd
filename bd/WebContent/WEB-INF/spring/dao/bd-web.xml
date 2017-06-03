@@ -15,7 +15,7 @@
 	<!-- lazy-init="true" 延迟加载 -->
 	<!-- scope="singleton,prototype,request,session,globalSession" 作用域 -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.bd.web.dao" />
+		<property name="basePackage" value="com.bd.*.dao" />
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>
 
