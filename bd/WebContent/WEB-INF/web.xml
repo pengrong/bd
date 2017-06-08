@@ -11,6 +11,7 @@
 			/WEB-INF/spring/datasource.xml
 			/WEB-INF/spring/spring-context.xml
 			/WEB-INF/spring/mybatis-context.xml
+			/WEB-INF/spring/controller/*
 			/WEB-INF/spring/service/*
 			/WEB-INF/spring/dao/*
 		</param-value>

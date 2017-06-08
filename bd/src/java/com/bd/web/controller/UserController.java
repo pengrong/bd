@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bd.user.data.User;
-import com.bd.user.service.UserService;
+import com.bd.web.service.UserService;
 import com.bd.common.Tools;
 
 @Controller
-@RequestMapping(value = "/db/user")
+@RequestMapping(value = "/web/user")
 public class UserController {
 	@Autowired
 	private UserService userService;

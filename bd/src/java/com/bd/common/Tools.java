@@ -37,8 +37,8 @@ public class Tools {
 		return UUIDGenerator.getUUID();
 	}
 
-	public static long nextId() {
-		return idWorker.nextId();
+	public static String nextId() {
+		return String.valueOf(idWorker.nextId());
 	}
 
 	public static Date getCurrentDateTime() {

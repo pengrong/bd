@@ -67,7 +67,7 @@
     function login(username,password) {
     	$.ajax({
     		type: "POST",
-    		url: context + "/service/bd/login/login",
+    		url: context + "/service/web/login/login",
     		data: {"username":username,"password":password},
     		success: function(result) {
     			if(result && result.success == true) {

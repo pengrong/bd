@@ -8,11 +8,13 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
+import org.springframework.web.multipart.commons.CommonsMultipartFile;
+
 @Table(name = "BD_WEB_USER")
 public class User {
 	@Id
-	private long id; // 主键id
-	private String username; // 账户名
+	private String id; // 主键id
+	private String username; // 登录账户名
 	private String password; // 账户密码
 	@Transient
 	private String password2; // 账户密码
@@ -26,18 +28,21 @@ public class User {
 	private Date createtime; // 创建时间
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date updatetime; // 更新时间
-	private String nickname;
+	private String nickname;// 昵称
 	private String cellphone; // 手机号码
+	private String showname; // 显示名
+	private String headpic; // 头像url
+	private String qq; // qq
 	/**
-	 * 账户类型:1系统管理员，2平台用户，3普通用户	
+	 * 账户类型:1系统管理员，2平台用户，3普通用户
 	 */
-	private String usertype; // 
+	private String usertype; //
 
-	public long getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(long id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
@@ -143,5 +148,29 @@ public class User {
 
 	public void setUsertype(String usertype) {
 		this.usertype = usertype;
+	}
+
+	public String getShowname() {
+		return showname;
+	}
+
+	public void setShowname(String showname) {
+		this.showname = showname;
+	}
+
+	public String getHeadpic() {
+		return headpic;
+	}
+
+	public void setHeadpic(String headpic) {
+		this.headpic = headpic;
+	}
+
+	public String getQq() {
+		return qq;
+	}
+
+	public void setQq(String qq) {
+		this.qq = qq;
 	}
 }

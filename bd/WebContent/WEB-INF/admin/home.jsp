@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-<%@ page pageEncoding="UTF-8" language="java"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="/tags/loushang-web" prefix="l"%>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -8,58 +8,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
 	<title>Loushang UI库</title>
-	
-	<!-- 需要引用的CSS -->
-    <link rel="shortcut icon" href="<l:asset path='platform/img/favicon.ico'/>" />
-	<link rel="stylesheet" type="text/css" href="<l:asset path='css/bootstrap.css'/>" />
-    <link rel="stylesheet" type="text/css" href="<l:asset path='css/font-awesome.css'/>" />
-    <link rel="stylesheet" type="text/css" href="<l:asset path='css/ui.css'/>" />
-	<link rel="stylesheet" type="text/css" href="<l:asset path='css/form.css'/>" />
-	<link rel="stylesheet" type="text/css" href="<l:asset path='cportal/css/cportal.css'/>" />
-	<link rel="stylesheet" type="text/css" href="<l:asset path='cportal/css/jsPanel.css'/>" />
-    <link rel="stylesheet" type="text/css" href="<l:asset path='platform/css/home.css'/>" />
-
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-	      <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-	      <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
-	    <![endif]-->
+<%@include file="/WEB-INF/admin/common/head.jsp" %>
 </head>
 <body>
 	<!-- 页面结构 -->
-	<header class="navbar navbar-static-top navbar-bg">
-		<div class="container">
-					<div class="navbar-header"><a href="" class="navbar-brand">BD</a></div>
-					<nav class="collapse navbar-collapse">
-						<ul id="menu" class="nav navbar-nav">
-							<li><a href="home.jsp" class="bd-menu">用户管理</a></li>
-							<li><a href="ui-codenorm.html" >专题管理</a></li>
-							<li><a href="ui-codenorm.html" >分类管理</a></li>
-							<li><a href="ui-codenorm.html" >系统通知</a></li>
-							<li><a href="ui-codenorm.html" >快讯管理</a></li>
-							<li><a href="ui-codenorm.html" >广告管理</a></li>
-						</ul>
-						<div class="nav-bar navbar-nav navbar-right">
-								<div class="btn-group" role="group" aria-label="...">
-								  <div class="btn-group" role="group">
-								    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								      <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-								      <span class="loginuser center"></span>
-								    </button>
-								    <ul class="dropdown-menu">
-								      <li><a href="#">Dropdown link</a></li>
-								      <li><a href="#">Dropdown link</a></li>
-										<li><a class="center" id="quit">退出登录</a></li>
-								    </ul>
-								  </div>
-								  <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-comment" aria-hidden="true"></span></button>
-								</div>
-							</div>
-						</div>
-						</nav>
-		</div>
-	</header>
+	<%@include file="/WEB-INF/admin/common/navbar.jsp" %>
 	<div class="container">
 		<div class="row" style="position: relative;">
 			<div class="list-types" style="display: none;">
@@ -69,7 +22,7 @@
 			<div class="col-md-10">
 				<div class="row" id="comc">
 					<div class="embed-responsive embed-responsive-16by9">
-					  <iframe id="contentFrame" class="embed-responsive-item" src="..."></iframe>
+					  <iframe id="contentFrame" class="embed-responsive-item" src="home"></iframe>
 					</div>
 				</div>
 			</div>
@@ -101,11 +54,6 @@
 		var context="<%=request.getContextPath()%>";
 		var tId="";
 	    $(document).ready(function() {
-		    //根据组件类别分类查询
-			$(".bd-menu").on("click",function() {
-				$("#contentFrame").src = this.href;
-				return false;
-			});
 	    });
 	</script>
 </body>

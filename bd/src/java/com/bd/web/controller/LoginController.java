@@ -17,15 +17,18 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.bd.common.Constant;
 import com.bd.common.Md5PasswordEncoder;
 import com.bd.user.data.User;
-import com.bd.user.service.UserService;
+import com.bd.web.service.UserService;
 
 @Controller
-@RequestMapping(value = "/bd/login")
+@RequestMapping(value = "/web/login")
 public class LoginController {
 	private static final Log LOG = LogFactory.getLog(LoginController.class);
 	@Autowired
 	private UserService userService;
-
+	@RequestMapping(value = "/test", method = RequestMethod.GET)
+	public String test() {
+		return "/jsp/public/login";
+	}
 	/**
 	 * 登录
 	 * 
@@ -85,7 +88,7 @@ public class LoginController {
 	private User getTest() {
 		User user;
 		user = new User();
-		user.setId(1);
+		user.setId("2");
 		user.setUsername("1");
 		user.setPassword(Md5PasswordEncoder.encrypt("1"));
 		return user;

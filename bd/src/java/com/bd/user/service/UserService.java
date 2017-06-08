@@ -1,5 +1,8 @@
 package com.bd.user.service;
 
+import java.util.List;
+import java.util.Map;
+
 import com.bd.user.data.User;
 
 /**
@@ -11,20 +14,20 @@ import com.bd.user.data.User;
 public interface UserService {
 
 	/**
-	 * 注册
+	 * 增加
 	 * 
 	 * @param user
 	 * @return
 	 */
-	int register(User user);
+	int insert(User user);
 
 	/**
-	 * 注销
+	 * 删除
 	 * 
 	 * @param id
 	 * @return
 	 */
-	int cancel(String id);
+	int delete(String id);
 
 	/**
 	 * 修改
@@ -32,16 +35,17 @@ public interface UserService {
 	 * @param user
 	 * @return
 	 */
-	User update(User user);
+	int update(User user);
 
 	/**
 	 * 查询
 	 * 
-	 * @param username
+	 * @param map
 	 * @return
 	 */
-	User getByUsername(String username);
-	// 找回密码:验证码将会发送至你的注册邮箱或手机
+	List<User> query(Map<String, String> map);
 
+	public User save(User user);
 
+	User findOne(String id);
 }

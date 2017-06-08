@@ -20,5 +20,12 @@
 		BD_WEB_USER
 		username = #{username}
 	</select>
-
+	<update id="update">
+	 UPDATE BD_WEB_USER SET username = ?, password = ?, email = ?, online = ?, enabled = ?, locked = ?, 
+	 locktime = ?, createtime = ?, updatetime = ?, nickname = ?, cellphone = ?, showname = ?, headpic = ?, 
+	 qq = ?, usertype = ? WHERE id = ?
+	</update>
+	<delete id="delete" parameterType="String">
+	delete from BD_WEB_USER where id=#{id}
+	</delete>
 </mapper>

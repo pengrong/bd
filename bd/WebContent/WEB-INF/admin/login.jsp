@@ -68,34 +68,6 @@
     	})
     	
     });
-  //登录功能
-    function login(username,password) {
-    	$.ajax({
-    		type: "POST",
-    		url: context + "/service/admin/login",
-    		data: {"username":username,"password":password},
-    		success: function(result) {
-    			if(result && result.success == true) {
-    				//将用户名放在cookie里面
-    				if($("#remember").is(":checked")) {
-    					$.cookie("username", username, {expires: 7, path: "/bd/admin"});
-    				}else {
-    					$.cookie("username",username, {path: "/bd/admin"});
-    				}
-    				parent.location.reload();
-    				dialog.remove();
-    			}else {
-    				if(result && result.message){
-    					$(".error").html('<lable class="errorMsg">'+result.message+'</label>');
-    				}else{
-	    				$(".error").html('<lable class="errorMsg">用户名或密码错误请重新登录！</label>');
-    				}
-    			}
-    		},
-    		error: function() {
-    		}
-    	});
-    }
    	</script>
   </body>
 </html>

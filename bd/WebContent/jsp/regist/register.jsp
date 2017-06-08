@@ -50,7 +50,7 @@
 	});
 	//保存实例
 	function save() {
-		var url = context + "/service/db/user/register";
+		var url = context + "/service/web/user/register";
 		saveForm.action = url;
 		saveForm.method = "POST";
 		saveForm.submit(); 
