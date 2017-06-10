@@ -22,8 +22,9 @@ import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.bd.common.ImageCompressUtil;
-import com.bd.user.data.User;
-import com.bd.user.service.UserService;
+import com.bd.common.Tools;
+import com.bd.base.data.User;
+import com.bd.base.service.UserService;
 
 @Controller
 @RequestMapping(value = "/admin/user")
@@ -82,9 +83,12 @@ public class AdminUserController {
 	@RequestMapping(value = "/save")
 	@ResponseBody
 	public Map<String, Object> save(HttpServletRequest request, User user) {
+		if (user.getId() == null) {
+			user.setId(Tools.nextId());
+		}
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		// 上传文件目录定义
-		String path = "/upload/image/" + user.getUsername() + "/";
+		String path = "/upload/image/user/" + user.getId() + "/";
 		if (request instanceof MultipartHttpServletRequest) {
 			MultipartFile file = ((MultipartHttpServletRequest) request).getFile("headpicFile");
 			if (file.getSize() > 0) {

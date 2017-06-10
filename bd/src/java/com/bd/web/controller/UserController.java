@@ -9,7 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.bd.user.data.User;
+import com.bd.base.data.User;
 import com.bd.web.service.UserService;
 import com.bd.common.Tools;
 

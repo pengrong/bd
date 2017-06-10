@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.bd.common.Constant;
 import com.bd.common.Md5PasswordEncoder;
-import com.bd.user.data.User;
+import com.bd.base.data.User;
 import com.bd.web.service.UserService;
 
 @Controller

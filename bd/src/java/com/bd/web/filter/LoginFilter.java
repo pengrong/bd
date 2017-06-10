@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.bd.common.Constant;
-import com.bd.user.data.User;
+import com.bd.base.data.User;
 import com.bd.web.exception.SessionException;
 
 public class LoginFilter implements Filter {

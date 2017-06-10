@@ -1,4 +1,4 @@
-package com.bd.user.data;
+package com.bd.base.data;
 
 import java.sql.Date;
 

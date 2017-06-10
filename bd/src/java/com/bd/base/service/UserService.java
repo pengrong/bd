@@ -1,9 +1,9 @@
-package com.bd.user.service;
+package com.bd.base.service;
 
 import java.util.List;
 import java.util.Map;
 
-import com.bd.user.data.User;
+import com.bd.base.data.User;
 
 /**
  * 用户管理

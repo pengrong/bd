@@ -1,6 +1,6 @@
 package com.bd.web.service;
 
-import com.bd.user.data.User;
+import com.bd.base.data.User;
 
 /**
  * 用户管理
