@@ -15,6 +15,7 @@
 	<!-- 页面结构 -->
 	<%@include file="/WEB-INF/admin/common/navbar.jsp"%>
 	<div class="container">
+		<div class="col-xs-12 col-md-12"> 
 		<div class="row">
 			<form class="form-inline" onsubmit="return false;">
 				<div class="input-group">
@@ -29,10 +30,11 @@
 						<span class="fa fa-plus"></span> 增加
 					</button>
 				</div>
-
 			</form>
 		</div>
-		<div class="row">
+		</div>
+	</div>
+		<div class="container">
 			<table id="userList" class="table table-bordered table-hover">
 				<thead>
 					<tr>
@@ -47,7 +49,6 @@
 				</thead>
 			</table>
 		</div>
-	</div>
 	<!-- 需要引用的JS -->
 	<%-- <script type="text/javascript" src="<l:asset path='arttemplate.js'/>"></script> --%>
 	<l:script

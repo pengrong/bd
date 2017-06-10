@@ -5,12 +5,12 @@
 					<div class="navbar-header"><a href="" class="navbar-brand">BD</a></div>
 					<nav class="collapse navbar-collapse">
 						<ul id="menu" class="nav navbar-nav">
-							<li><a href="/service/admin/user" class="bd-menu">用户管理</a></li>
-							<li><a href="/service/admin/topic" >专题管理</a></li>
-							<li><a href="/service/admin/category" >分类管理</a></li>
-							<li><a href="/service/admin/notice" >系统通知</a></li>
-							<li><a href="/service/admin/news" >快讯管理</a></li>
-							<li><a href="/service/admin/ad" >广告管理</a></li>
+							<li><a href="<%=request.getContextPath()%>/service/admin/user" class="bd-menu">用户管理</a></li>
+							<li><a href="<%=request.getContextPath()%>/service/admin/topic" >专题管理</a></li>
+							<li><a href="<%=request.getContextPath()%>/service/admin/category" >分类管理</a></li>
+							<li><a href="<%=request.getContextPath()%>/service/admin/notice" >系统通知</a></li>
+							<li><a href="<%=request.getContextPath()%>/service/admin/news" >快讯管理</a></li>
+							<li><a href="<%=request.getContextPath()%>/service/admin/ad" >广告管理</a></li>
 						</ul>
 						<div class="nav-bar navbar-nav navbar-right">
 								<div class="btn-group" role="group" aria-label="...">

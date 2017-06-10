@@ -21,11 +21,56 @@
 		username = #{username}
 	</select>
 	<update id="update">
-	 UPDATE BD_WEB_USER SET username = ?, password = ?, email = ?, online = ?, enabled = ?, locked = ?, 
-	 locktime = ?, createtime = ?, updatetime = ?, nickname = ?, cellphone = ?, showname = ?, headpic = ?, 
-	 qq = ?, usertype = ? WHERE id = ?
+		UPDATE BD_WEB_USER
+		<trim prefix="set" suffixOverrides=",">
+			<if test="username != null">
+				username = #{username},
+			</if>
+			<if test="password != null">
+				password = #{password},
+			</if>
+			<if test="email != null">
+				email = #{email},
+			</if>
+			<if test="online != null">
+				online = #{online},
+			</if>
+			<if test="enabled != null">
+				enabled = #{enabled},
+			</if>
+			<if test="locked != null">
+				locked = #{locked},
+			</if>
+			<if test="createtime != null">
+				createtime = #{createtime},
+			</if>
+			<if test="updatetime != null">
+				updatetime = #{updatetime},
+			</if>
+			<if test="nickname != null">
+				nickname = #{nickname},
+			</if>
+			<if test="cellphone != null">
+				cellphone = #{cellphone},
+			</if>
+			<if test="showname != null">
+				showname = #{showname},
+			</if>
+			<if test="headpic != null">
+				headpic = #{headpic},
+			</if>
+			<if test="qq != null">
+				qq = #{ qq},
+			</if>
+			<if test="usertype != null">
+				usertype = #{usertype},
+			</if>
+		</trim>
+		WHERE id = #{id}
 	</update>
+
 	<delete id="delete" parameterType="String">
-	delete from BD_WEB_USER where id=#{id}
+		delete from BD_WEB_USER where
+		id=#{id}
 	</delete>
 </mapper>
