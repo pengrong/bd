@@ -19,18 +19,19 @@ public class TopicServiceImpl implements TopicService {
 
 	@Override
 	public int insert(Topic topic) {
-		topic.setId(Tools.nextId());
 		topic.setCreatetime(Tools.getCurrentDateTime());
+		topic.setUpdatetime(Tools.getCurrentDateTime());
 		return topicMapper.insert(topic);
 	}
 
 	@Override
-	public int delete(String id) {
-		return topicMapper.delete(id);
+	public int delete(String[] ids) {
+		return topicMapper.delete(ids);
 	}
 
 	@Override
 	public int update(Topic topic) {
+		topic.setUpdatetime(Tools.getCurrentDateTime());
 		return topicMapper.update(topic);
 	}
 

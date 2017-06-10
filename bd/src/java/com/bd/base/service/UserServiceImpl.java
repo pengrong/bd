@@ -36,6 +36,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public int update(User user) {
+		user.setUpdatetime(Tools.getCurrentDateTime());
 		return userMapper.update(user);
 	}
 

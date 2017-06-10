@@ -21,10 +21,10 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.bd.common.ImageCompressUtil;
-import com.bd.common.Tools;
 import com.bd.base.data.User;
 import com.bd.base.service.UserService;
+import com.bd.common.ImageCompressUtil;
+import com.bd.common.Tools;
 
 @Controller
 @RequestMapping(value = "/admin/user")
@@ -83,8 +83,10 @@ public class AdminUserController {
 	@RequestMapping(value = "/save")
 	@ResponseBody
 	public Map<String, Object> save(HttpServletRequest request, User user) {
-		if (user.getId() == null) {
+		boolean isInsert = false;
+		if (user.getId() == null || "".equals(user.getId())) {
 			user.setId(Tools.nextId());
+			isInsert = true;
 		}
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		// 上传文件目录定义
@@ -119,7 +121,11 @@ public class AdminUserController {
 			}
 		}
 		try {
-			userService.save(user);
+			if (isInsert) {
+				userService.insert(user);
+			} else {
+				userService.update(user);
+			}
 			resultMap.put("success", true);
 		} catch (Exception e) {
 			LOG.error("保存用户失败", e);
@@ -132,8 +138,8 @@ public class AdminUserController {
 	/**
 	 * 用户删除操作
 	 * 
-	 * @param ids
-	 *            [主键ID数组]
+	 * @param id
+	 *            主键ID
 	 * 
 	 * @return 用户列表页面路径
 	 * 

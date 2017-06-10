@@ -45,7 +45,5 @@ public interface UserService {
 	 */
 	List<User> query(Map<String, String> map);
 
-	public User save(User user);
-
 	User findOne(String id);
 }

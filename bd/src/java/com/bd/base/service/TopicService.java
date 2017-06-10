@@ -24,10 +24,10 @@ public interface TopicService {
 	/**
 	 * 删除
 	 * 
-	 * @param id
+	 * @param ids
 	 * @return
 	 */
-	int delete(String id);
+	int delete(String[] ids);
 
 	/**
 	 * 修改
@@ -44,8 +44,6 @@ public interface TopicService {
 	 * @return
 	 */
 	List<Topic> query(Map<String, String> map);
-
-	public Topic save(Topic topic);
 
 	Topic findOne(String id);
 }

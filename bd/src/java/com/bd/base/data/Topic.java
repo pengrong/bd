@@ -25,8 +25,8 @@ public class Topic {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date updatetime; // 更新时间
 	private boolean istop; // 是否置顶专题
-	private boolean isnav; // 是否导航专题
-	private int reads; // 阅读量
+	private short nav; // 是否导航专题
+	private int treads; // 阅读量
 	private int collections; // 收藏量
 	public String getId() {
 		return id;
@@ -70,22 +70,22 @@ public class Topic {
 	public void setIstop(boolean istop) {
 		this.istop = istop;
 	}
-	public boolean isIsnav() {
-		return isnav;
-	}
-	public void setIsnav(boolean isnav) {
-		this.isnav = isnav;
-	}
-	public int getReads() {
-		return reads;
-	}
-	public void setReads(int reads) {
-		this.reads = reads;
-	}
 	public int getCollections() {
 		return collections;
 	}
 	public void setCollections(int collections) {
 		this.collections = collections;
+	}
+	public short getNav() {
+		return nav;
+	}
+	public void setNav(short nav) {
+		this.nav = nav;
+	}
+	public int getTreads() {
+		return treads;
+	}
+	public void setTreads(int treads) {
+		this.treads = treads;
 	}
 }

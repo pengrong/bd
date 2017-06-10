@@ -3,48 +3,4 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.bd.base.dao.TopicMapper">
-	<resultMap type="com.bd.base.data.Topic" id="topicResultMap">
-		<id property="id" column="id" />
-	</resultMap>
-	<update id="update">
-		UPDATE BD_WEB_TOPIC
-		<trim prefix="set" suffixOverrides=",">
-			<if test="id != null">
-				id = #{id},
-			</if>
-			<if test="title != null">
-				title = #{title},
-			</if>
-			<if test="content != null">
-				content = #{content},
-			</if>
-			<if test="cover != null">
-				cover = #{cover},
-			</if>
-			<if test="createtime != null">
-				createtime = #{createtime},
-			</if>
-			<if test="updatetime != null">
-				updatetime = #{updatetime},
-			</if>
-			<if test="istop != null">
-				istop = #{istop},
-			</if>
-			<if test="isnav != null">
-				isnav = #{isnav},
-			</if>
-			<if test="reads != null">
-				reads = #{reads},
-			</if>
-			<if test="collections != null">
-				collections = #{collections},
-			</if>
-		</trim>
-		WHERE id = #{id}
-	</update>
-
-	<delete id="delete" parameterType="String">
-		delete from BD_WEB_TOPIC where
-		id=#{id}
-	</delete>
 </mapper>

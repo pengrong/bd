@@ -23,6 +23,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.bd.base.data.Topic;
 import com.bd.base.service.TopicService;
+import com.bd.common.Tools;
 
 @Controller
 @RequestMapping(value = "/admin/topic")
@@ -81,11 +82,16 @@ public class AdminTopicController {
 	@RequestMapping(value = "/save")
 	@ResponseBody
 	public Map<String, Object> save(HttpServletRequest request, Topic topic) {
+		boolean isInsert = false;
+		if (topic.getId() == null || "".equals(topic.getId())) {
+			topic.setId(Tools.nextId());
+			isInsert = true;
+		}
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		// 上传文件目录定义
 		String path = "/upload/image/topic/" + topic.getId() + "/";
 		if (request instanceof MultipartHttpServletRequest) {
-			MultipartFile file = ((MultipartHttpServletRequest) request).getFile("headpicFile");
+			MultipartFile file = ((MultipartHttpServletRequest) request).getFile("coverFile");
 			if (file.getSize() > 0) {
 				// 获取绝对路径
 				String uploadPath = request.getSession().getServletContext().getRealPath(path);
@@ -113,7 +119,11 @@ public class AdminTopicController {
 			}
 		}
 		try {
-			topicService.save(topic);
+			if (isInsert) {
+				topicService.insert(topic);
+			} else {
+				topicService.update(topic);
+			}
 			resultMap.put("success", true);
 		} catch (Exception e) {
 			LOG.error("保存专题失败", e);
@@ -132,12 +142,12 @@ public class AdminTopicController {
 	 * @return 专题列表页面路径
 	 * 
 	 */
-	@RequestMapping("/delete/{id}")
+	@RequestMapping("/delete")
 	@ResponseBody
-	public Map<String, Object> delete(@PathVariable String id) {
+	public Map<String, Object> delete(String[] ids) {
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		try {
-			topicService.delete(id);
+			topicService.delete(ids);
 			resultMap.put("success", true);
 		} catch (Exception e) {
 			resultMap.put("message", "删除专题失败");
